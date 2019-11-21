@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>직원번호</th><th>직원명</th><th>직급</th><th>관리고객</th>
+		</tr>
+		{% if datas %}
+			{% for d in datas %}
+				<tr>
+					<td>{{d.jikwon_no}}</td>
+					<td>
+					{% if d.count > 0 %}
+						<a href='/company/CustomerList?no={{d.jikwon_no}}' target="t2">
+					{% endif %}
+					{{d.jikwon_name}}</a></td>
+					<td>{{d.jikwon_jik}}</td>
+					<td>{{d.count}}</td>
+				</tr>
+			{% endfor %}
+		{% else %}
+			<tr>
+				<td colspan="4">부서정보가 없습니다.</td>
+			</tr>
+		{% endif %}	
+	</table>
+	<iframe width="500" height="300" name="t2"></iframe>
+</body>
+</html>

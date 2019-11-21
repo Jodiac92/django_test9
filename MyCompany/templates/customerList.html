@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>고객번호</th><th>고객명</th><th>성별</th><th>고객번호</th>
+		</tr>
+		{% if datas %}
+			{% for d in datas %}
+				<tr>
+					<td>{{d.buser_no}}</td>
+					<td>{{d.buser_name}}</a></td>
+					<td>{{d.buser_gen}}</td>
+					<td>{{d.buser_tel}}</td>
+				</tr>
+			{% endfor %}
+		{% else %}
+			<tr>
+				<td colspan="4">부서정보가 없습니다.</td>
+			</tr>
+		{% endif %}	
+	</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>부서번호</th><th>이름</th><th>지역</th><th>전화번호</th>
+		</tr>
+		{% if datas %}
+			{% for d in datas %}
+				<tr>
+					<td>{{d.buser_no}}</td>
+					<td><a href='/company/EmpList?no={{d.buser_no}}' target="t">{{d.buser_name}}</a></td>
+					<td>{{d.buser_loc}}</td>
+					<td>{{d.buser_tel}}</td>
+				</tr>
+			{% endfor %}
+		{% else %}
+			<tr>
+				<td colspan="4">부서정보가 없습니다.</td>
+			</tr>
+		{% endif %}	
+	</table>
+	<iframe width="500" height="800" name="t"></iframe>
+</body>
+</html>
